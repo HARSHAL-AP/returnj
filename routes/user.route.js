@@ -1,16 +1,16 @@
-const express = require("express");
+const express =require("express");
 const bcrypt = require("bcrypt");
 const userRoute = express.Router();
 const { UserModel } = require("../models/user.model");
 const { IPinfoWrapper } = require("node-ipinfo");
-const ipinfo = new IPinfoWrapper("b3b1747d58eac1");
+const ipinfo = new IPinfoWrapper(process.env.ipinfotoken);
 const axios = require("axios");
 const twilio = require("twilio");
 require('dotenv').config()
-const accountSid ="AC85f29d4114302f6443b493e17fded4ff";
-const authToken = "f8e85a839dbbaf96d4b3b2d469559cc2";
 
-const client = twilio(accountSid,authToken);
+
+
+const client = twilio(process.env.accountSid,process.env.authToken);
 
 const getipdata = (ipAddress) => {
   return axios
@@ -58,7 +58,7 @@ userRoute.post("/register", async (req, res) => {
     client.messages
       .create({
         body: `${otp} is your verification code valid for the next 5 minutes!`,
-        from:"+15017082041",
+        from:'+12542211493',
         to: phone_number,
       })
       .then((message) => {
