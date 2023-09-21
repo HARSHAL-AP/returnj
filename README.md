@@ -32,7 +32,7 @@ Before running this application, make sure you have the following:
 1. Clone this repository:
 
    ```bash
-   git clone [https://github.com/rizwank123/Cuvette-Assignment.git](https://github.com/HARSHAL-AP/returnj.git)
+   git clone https://github.com/HARSHAL-AP/returnj.git
    cd returnj
    ```
 
